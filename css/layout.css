@@ -1,0 +1,151 @@
+/* =========================
+   LAYOUT – Skillcross
+========================= */
+
+/* Contenedor estándar */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: var(--space-sm);
+  padding-right: var(--space-sm);
+}
+
+/* Variantes de container (opcional, útil) */
+.container-narrow {
+  max-width: 960px;
+}
+
+.container-wide {
+  max-width: 1400px;
+}
+
+/* Sección con ritmo consistente (si no usás section en base) */
+.section {
+  padding: var(--space-xl) 0;
+}
+
+/* Grid simple (responsive sin media queries) */
+.grid {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Flex helpers */
+.flex {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.flex-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+/* Espaciado vertical rápido */
+.stack-sm > * + * {
+  margin-top: var(--space-sm);
+}
+
+.stack-md > * + * {
+  margin-top: var(--space-md);
+}
+
+.stack-lg > * + * {
+  margin-top: var(--space-lg);
+}
+
+/* =========================
+   TEXTO
+========================= */
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* =========================
+   ANCHOS MÁXIMOS
+========================= */
+
+.max-w-sm {
+  max-width: 480px;
+}
+
+.max-w-md {
+  max-width: 640px;
+}
+
+.max-w-lg {
+  max-width: 800px;
+}
+
+/* =========================
+   SEPARADORES
+========================= */
+
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  margin: var(--space-lg) 0;
+}
+
+/* =========================
+   ALTURAS
+========================= */
+
+.min-h-screen {
+  min-height: 100vh; /*Desktop*/
+}
+
+.min-h-half {
+  min-height: 50vh;
+}
+
+/* =========================
+   POSICIONAMIENTO
+========================= */
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+/* =========================
+   Z-INDEX
+========================= */
+
+.z-1 {
+  z-index: 1;
+}
+
+.z-10 {
+  z-index: 10;
+}
+
+.z-100 {
+  z-index: 100;
+}

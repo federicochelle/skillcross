@@ -1,0 +1,332 @@
+/* =========================
+   COMPONENTS – Skillcross
+========================= */
+
+/* -------------------------
+   Navbar (versión semántica)
+------------------------- */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* Marca clickeable */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+/* Logo sobresalido */
+.brand-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  position: relative;
+  top: 14px; /* sobresale hacia abajo */
+
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Texto marca */
+.brand-text {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.brand-name {
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+}
+
+.brand-sub {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* -------------------------
+   Buttons
+------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.45em 1em;
+  border-radius: 2px;
+
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  white-space: nowrap;
+
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    opacity var(--transition-fast);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background: linear-gradient(to bottom, #fa9333 0%, #e66e00 50%, #fa9333 100%);
+
+  color: #fff;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 6px 18px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  color: var(--color-text);
+}
+.btn-primary:active {
+  transform: translateY(1px);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.4),
+    inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+/* -------------------------
+   Card
+------------------------- */
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--space-xs);
+}
+
+.card-title span {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.card p {
+  margin: 0;
+}
+
+/* Icono simple (si usás svg) */
+.icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-primary);
+}
+
+/* -------------------------
+   Carousel (simple)
+------------------------- */
+
+.carousel {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.carousel img {
+  width: 100%;
+  flex: 0 0 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .carousel img {
+    height: 320px;
+  }
+}
+
+/* -------------------------
+   Footer / CTA final
+------------------------- */
+
+.cta-box {
+  text-align: center;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cta-actions {
+  display: flex;
+  gap: var(--space-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* -------------------------
+   Metodología
+------------------------- */
+
+.method-grid {
+  display: grid;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .method-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+  }
+}
+
+/* -------------------------
+   Entrenador
+------------------------- */
+
+.section-trainer {
+  background: var(--color-bg);
+}
+
+.trainer-info {
+  color: var(--color-text);
+}
+
+.trainer-bio {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.section-contact {
+  background: var(--color-bg);
+}
+
+.cta-box {
+  margin-top: var(--space-lg);
+}
+
+/* -------------------------
+   Ubicación (layout desktop)
+------------------------- */
+
+.section-location {
+  background: var(--color-bg);
+}
+
+.location-grid {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+/* Desktop */
+@media (min-width: 900px) {
+  .location-grid {
+    grid-template-columns: 1fr 1.1fr;
+  }
+
+  .location-info {
+    text-align: left;
+  }
+}
+
+/* Mobile */
+@media (max-width: 899px) {
+  .location-info {
+    text-align: center;
+  }
+}
+
+/* Mapa contenido (NO gigante) */
+.map-wrapper {
+  width: 100%;
+  height: 300px;
+
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  .map-wrapper {
+    height: 260px;
+  }
+}
+
+/* Iconos dentro de botones */
+.btn svg {
+  width: 2em;
+  height: 2em;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
