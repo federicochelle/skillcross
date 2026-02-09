@@ -128,6 +128,13 @@ a {
 
   --transition-fast: 0.2s ease;
   --transition-base: 0.3s ease;
+
+  --header-h: 72px; /* ajustá a la altura real de tu navbar */
+  --scroll-gap: 16px; /* aire extra */
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--header-h) + var(--scroll-gap));
 }
 
 /* =========================

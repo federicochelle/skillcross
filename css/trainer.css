@@ -4,7 +4,7 @@
 
 .trainer {
   display: grid;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   align-items: center;
 }
 
