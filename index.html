@@ -142,7 +142,7 @@
           muted
           loop
           playsinline
-          preload="metadata"
+          preload="auto"
           poster="assets/hero.jpg"
         >
           <source src="assets/skillcross-hero.mp4" type="video/mp4" />
@@ -620,6 +620,26 @@
         <p class="footer-copy">© <span id="year"></span> Skillcross Academy</p>
       </div>
     </footer>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const v = document.querySelector(".hero-media");
+        if (!v) return;
+        v.muted = true;
+        v.playsInline = true;
+
+        const p = v.play();
+        if (p && typeof p.catch === "function") {
+          p.catch(() => {
+            // si iOS lo bloquea, al primer toque arranca
+            const start = () => {
+              v.play();
+              window.removeEventListener("touchstart", start);
+            };
+            window.addEventListener("touchstart", start, { once: true });
+          });
+        }
+      });
+    </script>
     <script src="js/navbar.js"></script>
   </body>
 </html>
