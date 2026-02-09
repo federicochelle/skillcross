@@ -36,7 +36,8 @@
         <nav class="nav nav-desktop" aria-label="Navegación principal">
           <a class="nav-link" href="#entrenamientos">Entrenamientos</a>
           <a class="nav-link" href="#metodologia">Metodología</a>
-          <a class="nav-link" href="#trainer">Entrenador</a>
+          <a class="nav-link" href="#entrenador">Entrenador</a>
+          <a class="nav-link" href="#ubicacion">Ubicacion</a>
 
           <!-- CTA principal -->
           <a
@@ -99,7 +100,8 @@
         <nav class="nav nav-mobile" aria-label="Menú móvil">
           <a class="nav-link" href="#entrenamientos">Entrenamientos</a>
           <a class="nav-link" href="#metodologia">Metodología</a>
-          <a class="nav-link" href="#trainer">Entrenador</a>
+          <a class="nav-link" href="#entrenador">Entrenador</a>
+          <a class="nav-link" href="#ubicacion">Ubicacion</a>
 
           <a
             class="btn btn-primary"
@@ -142,10 +144,11 @@
           muted
           loop
           playsinline
+          webkit-playsinline
           preload="auto"
           poster="assets/hero.jpg"
         >
-          <source src="assets/skillcross-hero.mp4" type="video/mp4" />
+          <source src="assets/skillcrosshero.mp4" type="video/mp4" />
         </video>
 
         <div class="hero-overlay"></div>
@@ -176,10 +179,17 @@
             nivel, priorizando el progreso real y sostenible.
           </p>
         </div>
-
-        <!-- TRAININGS -->
       </section>
-      <div class="section-divider" aria-hidden="true"></div>
+      <div class="section-divider" aria-hidden="true" id="entrenamientos"></div>
+
+      <!-- TRAININGS -->
+      <header class="section-head text-center stack-sm">
+        <h2 class="section-title">Entrenamientos</h2>
+        <p class="section-lead max-w-md">
+          Programas diseñados para potenciar el desarrollo técnico, coordinativo
+          y físico, adaptados a cada jugador y etapa.
+        </p>
+      </header>
       <div class="grid grid-3 trainings-grid">
         <!-- Card 1 -->
         <article class="card training-card">
@@ -624,20 +634,22 @@
       window.addEventListener("DOMContentLoaded", () => {
         const v = document.querySelector(".hero-media");
         if (!v) return;
-        v.muted = true;
-        v.playsInline = true;
 
-        const p = v.play();
-        if (p && typeof p.catch === "function") {
-          p.catch(() => {
-            // si iOS lo bloquea, al primer toque arranca
-            const start = () => {
-              v.play();
-              window.removeEventListener("touchstart", start);
-            };
-            window.addEventListener("touchstart", start, { once: true });
-          });
-        }
+        v.muted = true;
+        v.setAttribute("muted", "");
+        v.playsInline = true;
+        v.setAttribute("playsinline", "");
+        v.setAttribute("webkit-playsinline", "");
+
+        const tryPlay = () => {
+          const p = v.play();
+          if (p && typeof p.catch === "function") {
+            p.catch(() => {});
+          }
+        };
+
+        tryPlay();
+        window.addEventListener("touchstart", tryPlay, { once: true });
       });
     </script>
     <script src="js/navbar.js"></script>

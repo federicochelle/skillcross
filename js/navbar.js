@@ -1,10 +1,13 @@
-const header = document.querySelector(".site-header");
-const toggle = document.querySelector(".nav-toggle");
-const mobileMenu = document.getElementById("mobile-menu");
-const overlay = document.querySelector(".menu-overlay");
-const closeTargets = document.querySelectorAll("[data-menu-close]");
+// NAVBAR
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".site-header");
+  const toggle = document.querySelector(".nav-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const overlay = document.querySelector(".menu-overlay");
+  const closeTargets = document.querySelectorAll("[data-menu-close]");
 
-if (header && toggle && mobileMenu && overlay) {
+  if (!header || !toggle || !mobileMenu || !overlay) return;
+
   const openMenu = () => {
     header.classList.add("is-open");
     toggle.setAttribute("aria-expanded", "true");
@@ -34,19 +37,40 @@ if (header && toggle && mobileMenu && overlay) {
   // Click en overlay
   overlay.addEventListener("click", closeMenu);
 
-  // Click en links del menú
+  // Click en elementos marcados
   closeTargets.forEach((el) => el.addEventListener("click", closeMenu));
 
-  // ⬅️ CLICK AFUERA REAL
+  // ✅ NUEVO: cerrar si clickean cualquier anchor interno (#seccion)
+  mobileMenu.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+
+    closeMenu();
+
+    // ✅ NUEVO: scroll suave + offset para sticky header (sin cortar títulos)
+    const targetId = link.getAttribute("href");
+    if (!targetId || targetId === "#") return;
+
+    const target = document.querySelector(targetId);
+    if (!target) return;
+
+    e.preventDefault();
+
+    const headerHeight = header.offsetHeight || 72;
+    const y =
+      target.getBoundingClientRect().top + window.scrollY - (headerHeight + 16);
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+  });
+
+  // Click afuera real
   document.addEventListener("click", (e) => {
     if (!isOpen()) return;
 
     const clickedInsideMenu =
       mobileMenu.contains(e.target) || toggle.contains(e.target);
 
-    if (!clickedInsideMenu) {
-      closeMenu();
-    }
+    if (!clickedInsideMenu) closeMenu();
   });
 
   // Escape
@@ -58,7 +82,7 @@ if (header && toggle && mobileMenu && overlay) {
   window.addEventListener("resize", () => {
     if (window.innerWidth > 900 && isOpen()) closeMenu();
   });
-}
+});
 
 //CARDS TRAINING
 document.addEventListener("click", (e) => {
