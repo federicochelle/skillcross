@@ -1,0 +1,101 @@
+/* -------------------------
+   Entrenamientos
+------------------------- */
+
+.section-trainings {
+  background: var(--color-bg);
+}
+
+.trainings-grid {
+  margin-top: var(--space-md);
+}
+
+.training-card {
+  padding: var(--space-md);
+}
+
+.training-title {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.training-accent {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.training-card p {
+  margin: 0;
+}
+
+.training-head {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: var(--space-sm);
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.training-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+  border: none;
+  color: var(--color-primary);
+}
+
+/* SVG */
+.training-icon svg {
+  width: 5em;
+  height: 5em;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* Para paths con fill */
+.training-icon svg [fill="currentColor"] {
+  fill: currentColor;
+}
+/* =========================
+   Mobile – Entrenamientos
+========================= */
+
+@media (max-width: 640px) {
+  .training-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.training-toggle {
+  margin-top: 0.75rem;
+}
+
+/* =========================
+   DESPLEGABLE SUAVE
+========================= */
+
+.training-more {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition:
+    max-height 350ms ease,
+    opacity 250ms ease;
+}
+
+.training-more.is-open {
+  max-height: 500px; /* suficiente para el texto */
+  opacity: 1;
+}

@@ -1,0 +1,60 @@
+/* -------------------------
+   Trainer (bloque entrenador)
+------------------------- */
+
+.trainer {
+  display: grid;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.trainer-photo {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  object-fit: cover;
+}
+
+.trainer-name {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-2xs);
+  color: var(--color-primary);
+}
+
+.trainer-role {
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-sm);
+}
+
+/* En desktop, foto y texto en 2 columnas */
+@media (min-width: 900px) {
+  .trainer {
+    grid-template-columns: 1fr 1.2fr;
+  }
+}
+
+/* -------------------------
+   Entrenador
+------------------------- */
+
+.section-trainer {
+  background: var(--color-bg);
+}
+
+.trainer-info {
+  color: var(--color-text);
+}
+
+.trainer-bio {
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.section-contact {
+  background: var(--color-bg);
+}
+
+.cta-box {
+  margin-top: var(--space-lg);
+}

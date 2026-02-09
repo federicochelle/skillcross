@@ -1,0 +1,174 @@
+/* =========================
+   UBICACIÓN
+========================= */
+
+.section-location {
+  background: var(--color-bg);
+}
+
+/* Grid principal */
+.location-grid {
+  display: grid;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+/* Desktop: 2 columnas */
+@media (min-width: 900px) {
+  .location-grid {
+    grid-template-columns: 1fr 1.25fr;
+    align-items: stretch;
+    gap: 2rem;
+  }
+
+  .location-info {
+    text-align: left;
+  }
+}
+
+/* Mobile: centrado */
+@media (max-width: 899px) {
+  .location-info {
+    text-align: center;
+  }
+}
+
+/* ---------- Textos (aire + lectura) ---------- */
+.location-head {
+  display: grid;
+  gap: 0.9rem; /* separa título / dirección / descripción */
+}
+
+.location-head h2 {
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+}
+
+.location-line {
+  margin: 0; /* importante: evita que se pegue raro */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; /* mobile */
+  gap: 0.6rem;
+  opacity: 0.95;
+}
+
+@media (min-width: 900px) {
+  .location-line {
+    justify-content: flex-start; /* desktop */
+  }
+}
+
+.location-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.location-line .icon {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  opacity: 0.85;
+}
+
+.location-description {
+  margin: 0;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 50ch; /* clave para que el párrafo no sea una sábana */
+}
+
+@media (max-width: 899px) {
+  .location-description {
+    margin-inline: auto;
+    max-width: 42ch;
+  }
+}
+
+/* Botón con separación real */
+.location-actions {
+  margin-top: 0.75rem;
+}
+
+.location-actions .btn {
+  padding-block: 0.9rem;
+}
+
+/* =========================
+   MAPA preview (link)
+========================= */
+
+.location-map {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 260px;
+  background-image: url("../assets/ubicacion.jpeg"); /* ajustá si cambia */
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* En desktop que llene la altura */
+@media (min-width: 900px) {
+  .location-map {
+    min-height: 100%;
+  }
+}
+
+.location-map::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.28),
+    rgba(0, 0, 0, 0) 55%
+  );
+  pointer-events: none;
+}
+
+.location-map-badge {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1;
+  backdrop-filter: blur(6px);
+}
+
+/* Hover sutil */
+@media (min-width: 900px) {
+  .location-map {
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease;
+  }
+  .location-map:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* Mobile map height */
+@media (max-width: 520px) {
+  .location-map {
+    min-height: 220px;
+  }
+}
+
+/* Iconos dentro de botones (si aplica global) */
+.btn svg {
+  width: 2em;
+  height: 2em;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
