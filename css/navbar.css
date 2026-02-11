@@ -240,3 +240,24 @@
     pointer-events: auto;
   }
 }
+/* ===== Logo más grande SIN agrandar navbar ===== */
+
+/* 1) Definí una altura fija para la barra */
+.site-header {
+  --nav-h: 72px; /* probá 68–78 según te guste */
+}
+
+/* 2) Hacé que el contenido viva dentro de esa altura */
+.header-inner {
+  height: var(--nav-h);
+  padding-block: 0; /* clave: evita que crezca */
+  display: flex;
+  align-items: center;
+}
+
+/* 3) Agrandá el logo usando height (no width) */
+.brand-logo {
+  height: calc(var(--nav-h) - 12px); /* deja aire arriba/abajo */
+  width: auto;
+  object-fit: contain;
+}
