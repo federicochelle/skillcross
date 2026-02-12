@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,7 @@
       name="description"
       content="Academia de básquet en Montevideo enfocada en el desarrollo técnico, coordinativo y mental. Entrenamientos para niños, preadolescentes, adolescentes y adultos."
     />
-
+    <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_UY" />
@@ -48,7 +48,21 @@
       name="twitter:image"
       content="https://skillcrossacademy.com/assets/open.jpg"
     />
-
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SportsActivityLocation",
+        "name": "Skillcross Academy",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Dr Emilio Frugoni 934",
+          "addressLocality": "Montevideo",
+          "addressCountry": "UY"
+        },
+        "url": "https://skillcrossacademy.com",
+        "sameAs": ["https://www.instagram.com/skillcrossacademy/"]
+      }
+    </script>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,10 +71,9 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Graduate&family=Nunito:wght@400;700&display=swap"
     />
-
     <link rel="stylesheet" href="css/main.css" />
   </head>
-  <body>
+  <body id="top">
     <!-- Header -->
     <header class="site-header">
       <div class="container flex flex-between flex-wrap header-inner">
@@ -68,7 +81,7 @@
         <a
           class="brand brand-logo-only"
           href="#top"
-          aria-label="PLATO – Ir al inicio"
+          aria-label="Skillcross – Ir al inicio"
         >
           <img
             class="brand-logo"
