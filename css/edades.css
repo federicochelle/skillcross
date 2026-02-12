@@ -9,19 +9,13 @@
 .ages-grid {
   display: grid;
   gap: var(--space-sm);
+  grid-template-columns: 1fr; /* Mobile: columna */
 }
 
-/* Desktop */
+/* Desktop: row (4 en una fila) */
 @media (min-width: 900px) {
   .ages-grid {
     grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-/* Mobile */
-@media (max-width: 899px) {
-  .ages-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -38,7 +32,7 @@
   background: var(--color-surface);
 
   height: auto;
-  aspect-ratio: 3/4;
+  aspect-ratio: 3 / 4;
   min-height: 260px;
 }
 
@@ -108,4 +102,11 @@
 
 .age-card:hover img {
   transform: scale(1.03);
+}
+
+@media (max-width: 899px) {
+  .age-card {
+    aspect-ratio: 4 / 3; /* menos vertical */
+    min-height: 120px; /* más compacta */
+  }
 }

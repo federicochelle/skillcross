@@ -33,7 +33,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: "bebas neue", sans-serif;
+  font-family: var(--font-title);
   font-size: 3rem;
 
   color: var(--color-primary);
