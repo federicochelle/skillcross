@@ -18,13 +18,13 @@
 
 .trainer-name {
   font-weight: var(--font-weight-bold);
-  margin-bottom: var(--space-2xs);
+  margin-bottom: var(--space-md);
   color: var(--color-primary);
 }
 
 .trainer-role {
   color: var(--color-text-muted);
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 /* En desktop, foto y texto en 2 columnas */
@@ -49,6 +49,7 @@
 .trainer-bio {
   color: var(--color-text-muted);
   margin: 0;
+  margin-bottom: var(--space-md);
 }
 
 .section-contact {

@@ -52,9 +52,10 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Graduate&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Graduate&family=Nunito:wght@400;700&display=swap"
     />
 
     <link rel="stylesheet" href="css/main.css" />
@@ -183,13 +184,13 @@
           muted
           loop
           playsinline
-          webkit-playsinline
           preload="auto"
-          poster="assets/hero.jpg"
+          fetchpriority="high"
         >
           <source src="assets/skillcrosshero.mp4" type="video/mp4" />
         </video>
 
+        <!-- si usás overlay como DIV, que esté adentro -->
         <div class="hero-overlay"></div>
 
         <div class="container hero-content hero-offset stack-md">
@@ -425,7 +426,7 @@
               <figcaption>Pre adolescentes</figcaption>
             </figure>
 
-            <figure class="age-card" data-age="Adolescentes 13–15">
+            <figure class="age-card" data-age="Adolescentes 13–17">
               <img
                 src="assets/adolesentes.jpeg"
                 alt="Adolescentes entrenando basketball"
@@ -695,25 +696,36 @@
       </svg>
     </a>
     <script>
-      window.addEventListener("DOMContentLoaded", () => {
+      document.addEventListener("DOMContentLoaded", () => {
         const v = document.querySelector(".hero-media");
         if (!v) return;
 
+        // Requisitos iOS
         v.muted = true;
         v.setAttribute("muted", "");
-        v.playsInline = true;
         v.setAttribute("playsinline", "");
         v.setAttribute("webkit-playsinline", "");
 
         const tryPlay = () => {
           const p = v.play();
-          if (p && typeof p.catch === "function") {
-            p.catch(() => {});
-          }
+          if (p && typeof p.catch === "function") p.catch(() => {});
         };
 
+        // Primer intento
         tryPlay();
+
+        // Si necesita interacción
         window.addEventListener("touchstart", tryPlay, { once: true });
+
+        // Cuando volvés atrás (bfcache)
+        window.addEventListener("pageshow", () => {
+          tryPlay();
+        });
+
+        // Cuando volvés a la pestaña
+        document.addEventListener("visibilitychange", () => {
+          if (!document.hidden) tryPlay();
+        });
       });
     </script>
     <script src="js/navbar.js"></script>

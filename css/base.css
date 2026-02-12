@@ -89,8 +89,8 @@ a {
      TIPOGRAFÍA
   ========================= */
 
-  --font-base: "Nunito", "Libre Baskerville", serif;
-  --font-title: graduate, "Bebas Neue", sans-serif;
+  --font-base: "Nunito", sans-serif;
+  --font-title: graduate, sans-serif;
   --font-weight-regular: 400;
   --font-weight-medium: 500;
   --font-weight-bold: 700;
